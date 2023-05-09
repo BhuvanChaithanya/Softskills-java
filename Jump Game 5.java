@@ -2,23 +2,28 @@ import java.io.*;
 import java.util.*;
 
 public class Solution {
-
     public static void main(String[] args) {
-        Scanner myObj = new Scanner(System.in);
-        int n = myObj.nextInt();
-        int[] arr = new int[n];
-        for(int i=0;i<n;i++)
-        {
-            arr[i] = myObj.nextInt(); 
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
         }
-        if(arr[1]==n-2)
-        {
-            System.out.println(true);
+        boolean canReachEnd = canJump(nums);
+        System.out.println(canReachEnd);
+    }
+
+    public static boolean canJump(int[] nums) {
+        int maxPos = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > maxPos) {
+                return false;
+            }
+            maxPos = Math.max(maxPos, i + nums[i]);
+            if (maxPos >= nums.length - 1) {
+                return true;
+            }
         }
-        else
-        {
-            System.out.println(false);
-        }
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        return true;
     }
 }
