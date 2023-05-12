@@ -6,22 +6,19 @@ public class Solution {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
         int n = myObj.nextInt();
-        
-        for(int i=2; i<n ;i++)
+        int i=2;
+        while(n != 1 && i<=n)
         {
-            int count =0;
-            for(int j=1; j<n; j++)
+            if(n%i == 0)
             {
-                
-                if(i%j == 0)
-                {
-                    count++;
-                }
-            }
-            if(count == 2 && n%i == 0)
-            {
+                n = n/i;
                 System.out.printf(i+" ");
             }
+            else
+            {
+                i++;
+            }
         }
+        
     }
 }
