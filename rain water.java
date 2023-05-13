@@ -24,7 +24,7 @@ public class Solution {
             {
                 maxr = Math.max(maxr,arr[j]);
             }
-          int x = Math.min(maxl,maxr);
+            int x = Math.min(maxl,maxr);
             rain_filled = rain_filled + (x- arr[i]);
         }
         System.out.println(rain_filled);
